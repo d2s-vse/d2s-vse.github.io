@@ -6,69 +6,181 @@
   <title>Your Paper Title</title>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      background-color: #f9f9f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
       color: #333;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0.2em;
+    /* 上半部分样式 */
+    .header-section {
+      background-color: #3f72af; /* 你可以改成喜欢的颜色 */
+      color: white;
+      padding: 60px 20px 80px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
     }
 
-    .authors {
+    .header-section h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .header-section .authors {
+      font-size: 1.25em;
+      margin-bottom: 0.1em;
+      font-weight: 600;
+    }
+
+    .header-section .institution {
       font-size: 1.1em;
-      margin-bottom: 0.5em;
-    }
-
-    .institution {
       font-style: italic;
-      margin-bottom: 1.5em;
+      opacity: 0.85;
     }
 
-    a {
-      color: #007acc;
+    .header-section .links a {
+      color: #f0f4f8;
       text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .links {
-      margin-top: 1.5em;
-    }
-
-    .links a {
+      font-weight: 600;
+      margin: 0 15px;
+      padding: 8px 16px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      transition: background-color 0.3s, border-color 0.3s;
       display: inline-block;
-      margin-right: 1em;
+    }
+
+    .header-section .links a:hover {
+      background-color: #f0f4f8;
+      color: #3f72af;
+      border-color: #3f72af;
+    }
+
+    /* 下半部分样式 */
+    .content-section {
+      max-width: 900px;
+      background-color: white;
+      margin: -60px auto 60px; /* 上负margin让内容往上贴合header */
+      border-radius: 14px;
+      padding: 40px 30px 60px;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.1);
+    }
+
+    .content-section h2 {
+      border-left: 5px solid #3f72af;
+      padding-left: 12px;
+      font-weight: 700;
+      font-size: 1.8em;
+      margin-bottom: 16px;
+      color: #3f72af;
+    }
+
+    .content-section p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .figure {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .figure img {
+      max-width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+    }
+
+    .figure-caption {
+      font-size: 0.95em;
+      color: #666;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    @media (max-width: 650px) {
+      .header-section h1 {
+        font-size: 2em;
+      }
+
+      .header-section .authors,
+      .header-section .institution {
+        font-size: 1em;
+      }
+
+      .content-section {
+        margin: -40px 15px 40px;
+        padding: 30px 20px 40px;
+      }
+
+      .content-section h2 {
+        font-size: 1.5em;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Paper Title Goes Here</h1>
 
-  <div class="authors">
-    Author A, Author B, Author C
-  </div>
+  <section class="header-section">
+    <h1>Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching</h1>
+    <div class="authors">Yang Liu, Wentao Fen, Zhuoyao Liu, Shudong Huang, Jiancheng Lv</div>
+    <div class="institution">1 College of Computer Science, Sichuan University, Chengdu, 610065, China</div>
+    <div class="institution">2 Engineering Research Center of Machine Learning and Industry Intelligence, Ministry of Education, Chengdu, 610065, China</div>
 
-  <div class="institution">
-    Institution or University Name
-  </div>
+    <div class="links">
+      <a href="https://arxiv.org/pdf/2503.14953" target="_blank" rel="noopener">📄 Paper</a>
+      <a href="https://github.com/liuyyy111/d2s-vse" target="_blank" rel="noopener">💻 Code</a>
+      <a href="mailto:liuyyy111@gmail.com">✉ Contact</a>
+    </div>
+  </section>
 
-  <p>
-    Brief abstract or description of the paper. You can describe the motivation,
-    method, and key contributions here. Keep it concise and to the point.
-  </p>
+  <section class="content-section">
+    <h2>Abstract</h2>
+    <p>
+        Enabling Visual Semantic Models to effectively handle multi-view description matching has been a longstanding challenge. 
+        Existing methods typically learn a set of embeddings to find the optimal match for each view's text and compute similarity. However, the visual and text embeddings learned through these approaches have limited information capacity and are prone to interference from locally similar negative samples.
+        To address this issue, we argue that the information capacity of embeddings is crucial and propose Dense-to-Sparse Feature Distilled Visual Semantic Embedding (D2S-VSE), which enhances the information capacity of sparse text by leveraging dense text distillation.
+        Specifically, D2S-VSE is a two-stage framework. In the pre-training stage, we align images with dense text to enhance the information capacity of visual semantic embeddings.
+        In the fine-tuning stage, we optimize two tasks simultaneously, distilling dense text embeddings to sparse text embeddings while aligning images and sparse texts, enhancing the information capacity of sparse text embeddings.
+        Our proposed D2S-VSE model is extensively evaluated on the large-scale MS-COCO and Flickr30K
+        datasets, demonstrating its superiority over recent state-of-the-art methods.
+    </p>
 
-  <div class="links">
-    🔗 <a href="https://arxiv.org/abs/your-paper-id" target="_blank">Paper</a>
-    💻 <a href="https://github.com/your-username/d2s-vse" target="_blank">Code</a>
-    📧 <a href="mailto:your.email@example.com">Contact</a>
-  </div>
+    <div class="figure">
+      <img class="figure_size" src="assets/img/intro.jpg" alt="Introduction Figure" />
+      <div class="figure-caption">Figure 1: (Top) In previous methods, when addressing problems
+        with varying information density, a set of visual embeddings is
+        learned to match the most similar text embeddings. However, this
+        approach results in learned embeddings with limited information
+        capacity. (Mid) Since dense text has a higher information density
+        than sparse text, training with aligned dense text results in image
+        embeddings with greater information capacity. (Bottom) Sparse
+        text embedding can be distilled through dense text embedding to
+        enhance its information capacity, enabling the matching of text
+        descriptions from different perspectives with a single visual embedding. (Best viewed in color)</div>
+    </div>
+    <h2>Code/Pre-trained Models</h2>
+    Our code and pre-trained models are available on our <a href="https://github.com/liuyyy111/d2s-vse">Github repo</a>.
+    <pre>
+        <code>
+        @InProceedings{liu2025aligning,
+            author    = {Liu, Yang and Feng, Wentao and Liu, Zhuoyao and Huang, Shudong and Lv, Jiancheng},
+            title     = {Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching},
+            booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+            month     = {October},
+            year      = {2025}
+        }
+        </code>
+    </pre>
+</section>
+
+    
+  
+
 </body>
 </html>
