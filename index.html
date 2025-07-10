@@ -101,6 +101,7 @@
       color: #666;
       margin-top: 8px;
       font-style: italic;
+      text-align: justify;
     }
 
     @media (max-width: 650px) {
@@ -121,6 +122,20 @@
       .content-section h2 {
         font-size: 1.5em;
       }
+    }
+
+    pre {
+        background-color: #f8f8f2 ;
+        color: #272822;;
+        /* padding: 15px 20px; */
+        border-radius: 2px;
+        overflow-x: auto;
+        font-family: "Source Code Pro", monospace;
+        font-size: 1em;
+        line-height: 1.5;
+        white-space: pre-wrap;     /* 允许自动换行 */
+        word-wrap: break-word;     /* 长词断开换行 */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
@@ -166,15 +181,16 @@
     </div>
     <h2>Code/Pre-trained Models</h2>
     Our code and pre-trained models are available on our <a href="https://github.com/liuyyy111/d2s-vse">Github repo</a>.
+    <h2>Citation</h2>
     <pre>
         <code>
-        @InProceedings{liu2025aligning,
-            author    = {Liu, Yang and Feng, Wentao and Liu, Zhuoyao and Huang, Shudong and Lv, Jiancheng},
-            title     = {Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching},
-            booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-            month     = {October},
-            year      = {2025}
-        }
+            @InProceedings{liu2025aligning,
+                author    = {Liu, Yang and Feng, Wentao and Liu, Zhuoyao and Huang, Shudong and Lv, Jiancheng},
+                title     = {Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching},
+                booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+                month     = {October},
+                year      = {2025}
+            }
         </code>
     </pre>
 </section>
